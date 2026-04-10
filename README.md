@@ -1,36 +1,96 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Library Management System
 
-## Getting Started
+A full-featured library management system database built using PostgreSQL.
+Designed to handle real-world library operations including books, users, borrowing, reservations, fines, and analytics.
 
-First, run the development server:
+🚀 Features
+📖 Book management (with multiple copies)
+👤 User roles (Admin, Librarian, Reader)
+🏢 Multi-branch support
+🔄 Borrowing & returning system
+⏳ Reservation system
+💰 Fine management
+⭐ Reviews & ratings
+🔔 Notifications system
+🧾 Audit logs
+📊 Dashboard statistics (SQL View)
+🧱 Database Structure
+Core Entities
+Branches → Library locations
+Users → Admins, librarians, readers
+Books → Main book records
+Book Copies → Physical copies per branch
+Authors → Book writers
+Categories → Book classification
+Publishers → Publishing houses
+🔄 Operations
+Borrowings → Track borrowed books
+Reservations → Book reservation system
+Fines → Late payment tracking
+Reviews → User feedback system
+Notifications → Alerts for users
+Audit Logs → Track system actions
+🛠️ Installation
+1. Create Database
+CREATE DATABASE library_system;
+\c library_system;
+2. Enable Extensions
+CREATE EXTENSION IF NOT EXISTS "pgcrypto";
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+3. Run Schema
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Execute the full SQL file provided in this repository to create all tables, indexes, triggers, and views.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+⚡ Advanced Features
+🔁 Automatic Copy Status Update
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+A trigger automatically updates book copy status:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+When borrowed → borrowed
+When returned → available
+📊 Dashboard View
+SELECT * FROM full_library_stats;
+Returns:
+Total books
+Total copies
+Total users
+Active loans
+Total reservations
+📈 Indexing
 
-## Learn More
+Optimized queries with indexes:
 
-To learn more about Next.js, take a look at the following resources:
+Books (title)
+Authors (name)
+Borrowings (user)
+Reservations (user)
+Copies (status)
+🔐 Roles System
+Role	Permissions
+Admin	Full access
+Librarian	Manage books & users
+Reader	Borrow & review
+🧠 Future Improvements
+🔥 API (Next.js / Node.js)
+🔥 Admin Dashboard (React + Tailwind)
+🔥 Authentication system (JWT / OAuth)
+🔥 Real-time notifications
+🔥 PDF reports
+🔥 Mobile app integration
+📦 Tech Stack
+PostgreSQL
+SQL (Advanced queries + triggers)
+Designed for integration with:
+Next.js
+React
+REST / GraphQL APIs
+💀 Author
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Sadek Amine
+Computer Science Student
+Library SaaS System Developer 🚀
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+⭐ Contribution
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Feel free to fork this project and improve it.
+Pull requests are welcome!
