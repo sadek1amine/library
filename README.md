@@ -1,9 +1,9 @@
-Library Management System
+Library Management System g
 
 A full-featured library management system database built using PostgreSQL.
 Designed to handle real-world library operations including books, users, borrowing, reservations, fines, and analytics.
 
-🚀 Features
+🚀 Featur
 📖 Book management (with multiple copies)
 👤 User roles (Admin, Librarian, Reader)
 🏢 Multi-branch support
